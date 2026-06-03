@@ -332,6 +332,5 @@ public class Torneio {
                 }
                 
             } while (opcao != 5);
-        
     }
 }
