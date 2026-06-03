@@ -1,6 +1,12 @@
 import java.util.Scanner;
 
 public class Torneio {
+    public Torneio() {
+    }
+
+    /**
+     * @param args
+     */
     public static void main(String[] args) {
 
         // Classes de combate disponiveis
@@ -51,7 +57,7 @@ public class Torneio {
                 // OPCAO 1 — Registrar lutadores
                 // -------------------------------------------------------
                 switch (opcao) {
-                    case 1 -> {
+                    case 1: {
                         if (totalCadastrados == MAX) {
                             System.out.println("\n[AVISO] Todos os 8 lutadores(as) ja foram registrados.\n");
                         } else {
@@ -185,12 +191,13 @@ public class Torneio {
                         }
                         System.out.println("Pressione Enter para voltar ao menu...");
                         scanner.nextLine();
-                    }
+                        break;
+
                     
                     // -------------------------------------------------------
                     // OPCAO 2 — Mostrar todos os lutadores
                     // -------------------------------------------------------
-                    case 2 -> {
+                    case 2: {
                         System.out.println("\n--- Lista de Lutadores(as) ---");
                         if (totalCadastrados == 0) {
                             System.out.println("[AVISO] Nenhum(a) lutador(a) registrado(a) ainda.\n");
@@ -208,12 +215,12 @@ public class Torneio {
                         }
                         System.out.println("Pressione Enter para voltar ao menu...");
                         scanner.nextLine();
-                    }
+                        break;
                     
                     // -------------------------------------------------------
                     // OPCAO 3 — Buscar por nome
                     // -------------------------------------------------------
-                    case 3 -> {
+                    case 3: {
                         System.out.println("\n--- Buscar por Nome ---");
                         if (totalCadastrados == 0) {
                             System.out.println("[AVISO] Nenhum(a) lutador(a) registrado(a) ainda.\n");
@@ -245,12 +252,12 @@ public class Torneio {
                         }
                         System.out.println("Pressione Enter para voltar ao menu...");
                         scanner.nextLine();
-                    }
+                        break;
                     
                     // -------------------------------------------------------
                     // OPCAO 4 — Listar por classe
                     // -------------------------------------------------------
-                    case 4 -> {
+                    case 4: {
                         System.out.println("\n--- Listar por Classe ---");
                         if (totalCadastrados == 0) {
                             System.out.println("[AVISO] Nenhum(a) lutador(a) registrado(a) ainda.\n");
@@ -271,10 +278,18 @@ public class Torneio {
                                 // Converte para o nome padrao para exibir certinho
                                 String classeNomePadrao;
                                 switch (classeBusca) {
-                                    case "caca" -> classeNomePadrao = classeCaca;
-                                    case "guerra" -> classeNomePadrao = classeGuerra;
-                                    case "estrategia" -> classeNomePadrao = classeEstrategia;
-                                    default -> classeNomePadrao = classeMagia;
+                                    case "caca":
+                                        classeNomePadrao = classeCaca;
+                                        break;
+                                    case "guerra":
+                                        classeNomePadrao = classeGuerra;
+                                        break;
+                                    case "estrategia":
+                                        classeNomePadrao = classeEstrategia;
+                                        break;
+                                    default:
+                                        classeNomePadrao = classeMagia;
+                                        break;
                                 }
                                 
                                 boolean achouAlgum = false;
@@ -303,13 +318,17 @@ public class Torneio {
                         }
                         System.out.println("Pressione Enter para voltar ao menu...");
                         scanner.nextLine();
-                    }
+                        break;
                     
                     // -------------------------------------------------------
                     // OPCAO 5 — Encerrar
                     // -------------------------------------------------------
-                    case 5 -> System.out.println("\nEncerrando o sistema. Ate logo!");
-                    default -> System.out.println("\n[AVISO] Opcao invalida. Escolha entre 1 e 5.\n");
+                    case 5:
+                        System.out.println("\nEncerrando o sistema. Ate logo!");
+                        break;
+                    default:
+                        System.out.println("\n[AVISO] Opcao invalida. Escolha entre 1 e 5.\n");
+                        break;
                 }
                 
             } while (opcao != 5);
