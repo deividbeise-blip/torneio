@@ -257,7 +257,7 @@ public class Torneio {
                     // -------------------------------------------------------
                     // OPCAO 4 — Listar por classe
                     // -------------------------------------------------------
-                    case 4: {
+                    case 4:
                         System.out.println("\n--- Listar por Classe ---");
                         if (totalCadastrados == 0) {
                             System.out.println("[AVISO] Nenhum(a) lutador(a) registrado(a) ainda.\n");
