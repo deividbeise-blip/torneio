@@ -220,7 +220,7 @@ public class Torneio {
                     // -------------------------------------------------------
                     // OPCAO 3 — Buscar por nome
                     // -------------------------------------------------------
-                    case 3: {
+                    case 3:
                         System.out.println("\n--- Buscar por Nome ---");
                         if (totalCadastrados == 0) {
                             System.out.println("[AVISO] Nenhum(a) lutador(a) registrado(a) ainda.\n");
