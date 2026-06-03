@@ -4,9 +4,6 @@ public class Torneio {
     public Torneio() {
     }
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
 
         // Classes de combate disponiveis
