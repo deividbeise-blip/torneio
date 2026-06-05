@@ -42,8 +42,8 @@ public class Torneio {
                 System.out.println("5 - Mostrar combates");
                 System.out.println("6 - Executar Lutas");
                 System.out.println("7 - Mostrar lutas");
-                System.out.println("8-Mostrar ranking");
-                System.out.println("9- Encerrar");
+                System.out.println("8 - Mostrar ranking");
+                System.out.println("9 - Encerrar");
                 System.out.print("Escolha uma opcao: ");
                 
                 while (!scanner.hasNextInt()) {
