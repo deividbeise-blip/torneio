@@ -39,8 +39,11 @@ public class Torneio {
                 System.out.println("2 - Mostrar lutadores(as)");
                 System.out.println("3 - Buscar por nome");
                 System.out.println("4 - Listar por classe");
-                System.out.println("5 - Encerrar");
-                
+                System.out.println("5 - Mostrar combates");
+                System.out.println("6 - Executar Lutas");
+                System.out.println("7 - Mostrar lutas");
+                System.out.println("8-Mostrar ranking");
+                System.out.println("9- Encerrar");
                 System.out.print("Escolha uma opcao: ");
                 
                 while (!scanner.hasNextInt()) {
