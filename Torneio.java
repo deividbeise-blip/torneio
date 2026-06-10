@@ -1,13 +1,10 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Torneio {
-    public Torneio() {
-    }
-
     public static void main(String[] args) {
-
         // Classes de combate disponiveis
-         Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
             // Classes de combate disponiveis
             String classeCaca       = "Caca";
             String classeGuerra     = "Guerra";
@@ -26,8 +23,27 @@ public class Torneio {
             int totalCadastrados = 0;
             int opcao;
             
-            
-            System.out.println("   Liga de Lutadores(as) de Alegrete       ");
+                // Matriz de combate (12x2) - cada linha indica um confronto entre índices
+                int[][] matriz = {
+                    {3, 4},
+                    {3, 5},
+                    {1, 7},
+                    {4, 5},
+                    {6, 3},
+                    {7, 0},
+                    {7, 5},
+                    {1, 0},
+                    {6, 4},
+                    {2, 6},
+                    {1, 2},
+                    {0, 2}
+                };
+
+                // Matriz de pontuações (8 lutadores x 3 combates)
+                int[][] pontuacoes = new int[8][3];
+                boolean lutasExecutadas = false;
+
+                System.out.println("   Liga de Lutadores(as) de Alegrete       ");
             
             
             // Loop principal do menu
@@ -324,17 +340,73 @@ public class Torneio {
                     }
                     
                     // -------------------------------------------------------
-                    // OPCAO 5 — Encerrar
+                    // OPCAO 5 — Mostrar combates
                     // -------------------------------------------------------
-                    case 5:
-                        System.out.println("\nEncerrando o sistema. Ate logo!");
+                    case 5: {
+                        System.out.println("\n--- Combates ---");
+                        for (int i = 0; i < matriz.length; i++) {
+                            int a = matriz[i][0];
+                            int b = matriz[i][1];
+                            String nomeA = (a < totalCadastrados && nomes[a] != null) ? nomes[a] : "(vazio)";
+                            String nomeB = (b < totalCadastrados && nomes[b] != null) ? nomes[b] : "(vazio)";
+                            System.out.printf("%2d) %s (indice %d)  x  %s (indice %d)\n", i + 1, nomeA, a, nomeB, b);
+                        }
+                        System.out.println("\nPressione Enter para voltar ao menu...");
+                        scanner.nextLine();
                         break;
+                    }
+
+                    // -------------------------------------------------------
+                    // OPCAO 6 — Executar lutas
+                    // -------------------------------------------------------
+                    case 6: {
+                        if (totalCadastrados < MAX) {
+                            System.out.println("\n[AVISO] Cadastre os 8 lutadores antes de executar as lutas.\n");
+                            System.out.println("Pressione Enter para voltar ao menu...");
+                            scanner.nextLine();
+                            break;
+                        }
+
+                        // reseta pontuacoes
+                        for (int i = 0; i < pontuacoes.length; i++) Arrays.fill(pontuacoes[i], 0);
+                        int[] contagemLutas = new int[8];
+
+                        for (int i = 0; i < matriz.length; i++) {
+                            int a = matriz[i][0];
+                            int b = matriz[i][1];
+                            int danoA = danos[a];
+                            int danoB = danos[b];
+
+                            int scoreA = danoA - danoB;
+                            int scoreB = danoB - danoA;
+
+                            if (contagemLutas[a] < 3) pontuacoes[a][contagemLutas[a]++] = scoreA;
+                            if (contagemLutas[b] < 3) pontuacoes[b][contagemLutas[b]++] = scoreB;
+                        }
+
+                        lutasExecutadas = true;
+                        System.out.println("\nLutas executadas e pontuações calculadas.\n");
+                        System.out.println("Pressione Enter para voltar ao menu...");
+                        scanner.nextLine();
+                        break;
+                    }
+
+                    
+                    
+
+                    
+                    
+
+                    case 9:
+                        System.out.println("Encerrando...");
+                        break;
+
                     default:
-                        System.out.println("\n[AVISO] Opcao invalida. Escolha entre 1 e 5.\n");
+                        System.out.println("\n[AVISO] Opcao invalida. Escolha entre 1 e 9.\n");
                         break;
                 }
-                
-            } while (opcao != 5);
-        
+            } while (opcao != 9);
+
+            scanner.close();
     }
 }
