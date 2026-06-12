@@ -50,7 +50,7 @@ public class Torneio {
             do {
 
                 System.out.println("              MENU PRINCIPAL               ");
-
+                System.out.println("olá mundo");
                 System.out.println("1 - Registrar lutadores(as)");
                 System.out.println("2 - Mostrar lutadores(as)");
                 System.out.println("3 - Buscar por nome");
