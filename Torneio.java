@@ -12,7 +12,7 @@ public class Torneio {
             String classeMagia      = "Magia";
 
             // Vetores para armazenar os dados dos 8 lutadores
-            int MAX = 8;
+            int MAX = 9;
             String[] nomes      = new String[MAX];
             String[] classes    = new String[MAX];
             int[]    ataques    = new int[MAX];
